@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>ROSE Online in the browser</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=ead502a796" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://exjam.github.io/rose-online-in-the-browser/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="exjam" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="ROSE Online in the browser" />
+    <meta property="og:description" content="A story in pictures - aka how three.js and javascript enables you to make shit real quick.  ROSE Online is an MMORPG that Brett and I had huge amounts of development experience in, our coding careers (and friendship!) began in the private server emulation scene back in around 2008" />
+    <meta property="og:url" content="https://exjam.github.io/rose-online-in-the-browser/" />
+    <meta property="og:image" content="https://exjam.github.io/content/images/2017/04/Screen-Shot-2014-09-19-at-2.44.04-PM.png" />
+    <meta property="article:published_time" content="2017-04-26T22:34:00.000Z" />
+    <meta property="article:modified_time" content="2017-04-26T23:46:20.000Z" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ROSE Online in the browser" />
+    <meta name="twitter:description" content="A story in pictures - aka how three.js and javascript enables you to make shit real quick.  ROSE Online is an MMORPG that Brett and I had huge amounts of development experience in, our coding careers (and friendship!) began in the private server emulation scene back in around 2008" />
+    <meta name="twitter:url" content="https://exjam.github.io/rose-online-in-the-browser/" />
+    <meta name="twitter:image" content="https://exjam.github.io/content/images/2017/04/Screen-Shot-2014-09-19-at-2.44.04-PM.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="James Benton" />
+    <meta property="og:image:width" content="2822" />
+    <meta property="og:image:height" content="1456" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "exjam",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://exjam.github.io/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "James Benton",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/ffb731d1e21bc758f213c36641e89ad5?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://exjam.github.io/author/james/",
+        "sameAs": []
+    },
+    "headline": "ROSE Online in the browser",
+    "url": "https://exjam.github.io/rose-online-in-the-browser/",
+    "datePublished": "2017-04-26T22:34:00.000Z",
+    "dateModified": "2017-04-26T23:46:20.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://exjam.github.io/content/images/2017/04/Screen-Shot-2014-09-19-at-2.44.04-PM.png",
+        "width": 2822,
+        "height": 1456
+    },
+    "description": "A story in pictures - aka how three.js and javascript enables you to make shit\nreal quick.\n\nROSE Online is an MMORPG that Brett and I had huge amounts of development\nexperience in, our coding careers (and friendship!) began in the private server\nemulation scene back in around 2008 when we were like 14 years old or something.\nFast forward several years and suddenly one day I receive a message from Brett\nLawson [https://github.com/brett19] saying he wants to try make a ROSE client in\nthe browser w",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://exjam.github.io/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.1" />
+    <link rel="alternate" type="application/rss+xml" title="exjam" href="https://exjam.github.io/rss/" />
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header">
+    <div class="outer site-nav-main">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+            <a class="site-nav-logo" href="https://exjam.github.io">exjam</a>
+        <div class="site-nav-content">
+                <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="https://exjam.github.io/">Home</a></li>
+    <li class="nav-github" role="menuitem"><a href="http://github.com/exjam">github</a></li>
+</ul>
+
+                <span class="nav-post-title dash">ROSE Online in the browser</span>
+        </div>
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+        </div>
+            <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://exjam.github.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+</a>
+    </div>
+</nav>
+    </div>
+</div></header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post ">
+
+            <header class="post-full-header">
+
+
+                <h1 class="post-full-title">ROSE Online in the browser</h1>
+
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="//www.gravatar.com/avatar/ffb731d1e21bc758f213c36641e89ad5?s&#x3D;250&amp;d&#x3D;mm&amp;r&#x3D;x" alt="James Benton" />
+                                    <div class="author-info">
+                                        <h2>James Benton</h2>
+                                        <p>Read <a href="/author/james/">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="/author/james/" class="author-avatar">
+                                    <img class="author-profile-image" src="//www.gravatar.com/avatar/ffb731d1e21bc758f213c36641e89ad5?s&#x3D;250&amp;d&#x3D;mm&amp;r&#x3D;x" alt="James Benton" />
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="/author/james/">James Benton</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2017-04-26">26 Apr 2017</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 6 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            <figure class="post-full-image">
+                <img
+                    srcset="/content/images/size/w300/2017/04/Screen-Shot-2014-09-19-at-2.44.04-PM.png 300w,
+                            /content/images/size/w600/2017/04/Screen-Shot-2014-09-19-at-2.44.04-PM.png 600w,
+                            /content/images/size/w1000/2017/04/Screen-Shot-2014-09-19-at-2.44.04-PM.png 1000w,
+                            /content/images/size/w2000/2017/04/Screen-Shot-2014-09-19-at-2.44.04-PM.png 2000w"
+                    sizes="(max-width: 800px) 400px,
+                        (max-width: 1170px) 1170px,
+                            2000px"
+                    src="/content/images/size/w2000/2017/04/Screen-Shot-2014-09-19-at-2.44.04-PM.png"
+                    alt="ROSE Online in the browser"
+                />
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <!--kg-card-begin: markdown--><p>A story in pictures - aka how three.js and javascript enables you to make shit real quick.</p>
+<p>ROSE Online is an MMORPG that Brett and I had huge amounts of development experience in, our coding careers (and friendship!) began in the private server emulation scene back in around 2008 when we were like 14 years old or something. Fast forward several years and suddenly one day I receive a message from <a href="https://github.com/brett19">Brett Lawson</a> saying he wants to try make a ROSE client in the browser with WebGL and three.js, after some discussion we got a bit carried away and suddenly it's 30 days later and we've barely slept, but we actually came up with something pretty impressive.</p>
+<p>The source code for this project is available on github: <a href="https://github.com/brett19/rosebrowser">https://github.com/brett19/rosebrowser</a></p>
+<p>All the screenshots and their timestamps come from both of our puu.sh accounts.</p>
+<p><strong>2014-09-15 02:54:55</strong><br>
+It all started on the 15th September 2014 at 02:54:55am, where we rendered a simple heightmap and tileset.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-15_02-54-55.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-15_02-54-55.jpg" alt=""></a></p>
+<p><strong>2014-09-15 02:55:39</strong><br>
+10 minutes later we could render a full map with the correct tilemap.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-15_02-55-39.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-15_02-55-39.jpg" alt=""></a></p>
+<p><strong>2014-09-15 03:43:35</strong><br>
+About 50 minutes later we could render the static objects on a map too... In roughly 1h30m we managed to go from nothing to this:<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-15_03-43-35.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-15_03-43-35.jpg" alt=""></a></p>
+<p><strong>2014-09-16 03:37:11</strong><br>
+Starting on rendering NPCs.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-16_03-37-11.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-16_03-37-11.jpg" alt=""></a></p>
+<p><strong>2014-09-17 02:08:07</strong><br>
+We have some basic character rendering started. It's possible we have a network connection to the server here too as this is a character standing on the character select map.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-17_02-08-07.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-17_02-08-07.jpg" alt=""></a></p>
+<p><strong>2014-09-17 04:12:19</strong><br>
+Trying to get lightmaps working here.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-17_04-12-19.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-17_04-12-19.jpg" alt=""></a></p>
+<p><strong>2014-09-19 02:44L04</strong><br>
+Looking pretty amazing with lightmaps!<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-19_2-44-04.png"><img src="https://exjam.github.io/content/images/2017/04/2014-09-19_2-44-04.png" alt=""></a></p>
+<p><strong>2014-09-19 10:21:49</strong><br>
+4 days in to the project now and we have the map rendering with full lightmaps and water rendering<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-19_10-21-49--2-.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-19_10-21-49--2-.jpg" alt=""></a></p>
+<p><strong>2014-09-21 06:04:42</strong><br>
+After only 6 days we were able to get in game, move around, and see other players.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-21_06-04-42.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-21_06-04-42.jpg" alt=""></a></p>
+<p><strong>2014-09-21 06:23:40</strong><br>
+However we clearly still had some rendering issues.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-21_06-23-40.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-21_06-23-40.jpg" alt=""></a></p>
+<p><strong>2014-09-23 01:27:00</strong><br>
+Then our attention turned to particle effects, after 1-2 days of work we had particle effects working, parsing from the .PTL and .EFT files.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-23_01-27-00.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-23_01-27-00.jpg" alt=""></a></p>
+<p><strong>2014-09-23 08:04:37</strong><br>
+Looks like we fixed an error with tilemaps here.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-23_08-04-37.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-23_08-04-37.jpg" alt=""></a></p>
+<p><strong>2014-09-28 04:19:42</strong><br>
+Getting monsters rendering!<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-28_04-19-42.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-28_04-19-42.jpg" alt=""></a></p>
+<p><strong>2014-09-29 02:25:22</strong><br>
+Time to get started on a user interface.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-29_02-25-22.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-29_02-25-22.jpg" alt=""></a></p>
+<p><strong>2014-09-29 02:31:25</strong><br>
+And time to focus on playability, this was our first properly functioning character select screen.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-29_02-31-25.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-29_02-31-25.jpg" alt=""></a></p>
+<p><strong>2014-09-29 02:32:26</strong><br>
+Conversations with NPCs were based off local .CON files, which referenced strings in .STL files.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-29_02-32-26.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-29_02-32-26.jpg" alt=""></a></p>
+<p><strong>2014-09-29 02:36:25</strong><br>
+They also relied on .QSD files to allow for conditions / actions to happen to decide what text to show you or what action to take on clicking text.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-09-29_02-36-25.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-09-29_02-36-25.jpg" alt=""></a></p>
+<p><strong>2014-10-03 03:48:04</strong><br>
+So less than 3 weeks have passed and we have something resembling a functional client...<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-03_03-48-04.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-03_03-48-04.jpg" alt=""></a></p>
+<p><strong>2014-10-03 03:48:37</strong><br>
+It still has it's entertaining bugs though, we used a downwards raycast to calculate where to place an NPC, except this one is meant to stand under a tent...<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-03_03-48-37.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-03_03-48-37.jpg" alt=""></a></p>
+<p><strong>2014-10-03 06:44:02</strong><br>
+Entertaining bug #2.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-03_06-44-02.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-03_06-44-02.jpg" alt=""></a></p>
+<p><strong>2014-10-03 06:38:50</strong><br>
+Basic attempt at in game combat.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-03_06-38-50.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-03_06-38-50.jpg" alt=""></a></p>
+<p><strong>2014-10-04 01:27:58</strong><br>
+Now we had combat in the game, I really wanted to get the client into a position where we could complete the first quest line to get access to your profession, here's the Quest UI which shows your progression along your active quests.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-04_01-27-58.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-04_01-27-58.jpg" alt=""></a></p>
+<p><strong>2014-10-04 01-57-40</strong><br>
+Getting pretty excited here, I am able to progress along the job quest, kill the flowers and take their precious seeds!<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-04_01-57-40.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-04_01-57-40.jpg" alt=""></a></p>
+<p><em>82014-10-04 02:08:54</em>*<br>
+Ahhh after some hardcore grinding I'm about to complete the job quest and get my job!<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-04_02-08-54.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-04_02-08-54.jpg" alt=""></a></p>
+<p><strong>2014-10-04 02:10:31</strong><br>
+Fuck... maybe next time.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-04_02-10-31.png"><img src="https://exjam.github.io/content/images/2017/04/2014-10-04_02-10-31.png" alt=""></a></p>
+<p><strong>2014-10-07 03:15:22</strong><br>
+What other features does an MMO client need? Parties! Now i can finally send Brett abusive messages in private (and we completed a job quest together!)<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-07_03-15-22.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-07_03-15-22.jpg" alt=""></a></p>
+<p><strong>2014-10-08 02:21:46</strong><br>
+Wow! It runs on an Android tablet.<br>
+<img src="https://exjam.github.io/content/images/2017/04/IMG_20141010_022146.jpg" alt=""></p>
+<p><strong>2014-10-08 04:09:40</strong><br>
+Awful frame times in game though (~250ms).<br>
+<img src="https://exjam.github.io/content/images/2017/04/IMG_20141008_040940-nopm-.jpg" alt=""></p>
+<p><strong>2014-10-08 05:35:31</strong><br>
+Added displaying for character and status related particles.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-08_05-35-31.png"><img src="https://exjam.github.io/content/images/2017/04/2014-10-08_05-35-31.png" alt=""></a></p>
+<p><strong>2014-10-08 07:51:55</strong><br>
+Looking pretty good with the interface!<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-08_07-51-55.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-08_07-51-55.jpg" alt=""></a></p>
+<p><strong>2014-10-10 02:32:10</strong><br>
+Frame profile.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-10_02-32-10.png"><img src="https://exjam.github.io/content/images/2017/04/2014-10-10_02-32-10.png" alt=""></a></p>
+<p><strong>2014-10-13 07:48:37</strong><br>
+It's been a month and we made some amazing progress, but after working on it all day every day we just got burnt out. Here was one of the last screenshots I made before we stopped, it's the first screen you see when you open your browser.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-13_07-48-37.png"><img src="https://exjam.github.io/content/images/2017/04/2014-10-13_07-48-37.png" alt=""></a></p>
+<p><strong>2014-10-20 03:46:09</strong><br>
+Bonus picture of when I was trying to fiddle with character hitboxes a week later when I was bored.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-20_03-46-09.png"><img src="https://exjam.github.io/content/images/2017/04/2014-10-20_03-46-09.png" alt=""></a></p>
+<p><strong>2014-10-26 09:56:05</strong><br>
+Bonus picture #2 showing top down view of terrain chunking in action.<br>
+<a href="https://exjam.github.io/content/images/2017/04/2014-10-26_09-56-05.jpg"><img src="https://exjam.github.io/content/images/2017/04/2014-10-26_09-56-05.jpg" alt=""></a></p>
+<!--kg-card-end: markdown-->
+                </div>
+            </section>
+
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post tag-emulation tag-decaf-emu tag-wiiu ">
+
+    <a class="post-card-image-link" href="/history-of-decaf-emu-in-screenshots-part-1/">
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2018/05/2015-05-20_18-03-19.png 300w,
+                    /content/images/size/w600/2018/05/2015-05-20_18-03-19.png 600w,
+                    /content/images/size/w1000/2018/05/2015-05-20_18-03-19.png 1000w,
+                    /content/images/size/w2000/2018/05/2015-05-20_18-03-19.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="/content/images/size/w600/2018/05/2015-05-20_18-03-19.png"
+            alt="History of decaf-emu in screenshots - Part 1"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/history-of-decaf-emu-in-screenshots-part-1/">
+
+            <header class="post-card-header">
+                    <div class="post-card-primary-tag">emulation</div>
+                <h2 class="post-card-title">History of decaf-emu in screenshots - Part 1</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>Both Brett and I use this screenshot upload service called puu.sh, turns out it's a great way to track the history of your life. Here's what we have of</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        James Benton
+                    </div>
+            
+                    <a href="/author/james/" class="static-avatar">
+                        <img class="author-profile-image" src="//www.gravatar.com/avatar/ffb731d1e21bc758f213c36641e89ad5?s&#x3D;250&amp;d&#x3D;mm&amp;r&#x3D;x" alt="James Benton" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="/author/james/">James Benton</a></span>
+                <span class="post-card-byline-date"><time datetime="2017-04-26">26 Apr 2017</time> <span class="bull">&bull;</span> 5 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post tag-emulation ">
+
+    <a class="post-card-image-link" href="/psp2c/">
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2018/05/2011-10-07_04-16-14.png 300w,
+                    /content/images/size/w600/2018/05/2011-10-07_04-16-14.png 600w,
+                    /content/images/size/w1000/2018/05/2011-10-07_04-16-14.png 1000w,
+                    /content/images/size/w2000/2018/05/2011-10-07_04-16-14.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="/content/images/size/w600/2018/05/2011-10-07_04-16-14.png"
+            alt="My first emulator: psp2c"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/psp2c/">
+
+            <header class="post-card-header">
+                    <div class="post-card-primary-tag">emulation</div>
+                <h2 class="post-card-title">My first emulator: psp2c</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>I went with a bit of an unusual approach with my first emulator. It translated PSP games to C files which you compile to an .exe! This was back in</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        James Benton
+                    </div>
+            
+                    <a href="/author/james/" class="static-avatar">
+                        <img class="author-profile-image" src="//www.gravatar.com/avatar/ffb731d1e21bc758f213c36641e89ad5?s&#x3D;250&amp;d&#x3D;mm&amp;r&#x3D;x" alt="James Benton" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="/author/james/">James Benton</a></span>
+                <span class="post-card-byline-date"><time datetime="2017-04-26">26 Apr 2017</time> <span class="bull">&bull;</span> 1 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://exjam.github.io">exjam</a> &copy; 2019</section>
+                <nav class="site-footer-nav">
+                    <a href="https://exjam.github.io">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script src="/assets/built/casper.js?v=ead502a796"></script>
+
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+
+
+    
+
+</body>
+</html>
